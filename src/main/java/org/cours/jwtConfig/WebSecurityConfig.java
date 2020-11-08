@@ -67,14 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		httpSecurity.authorizeRequests().antMatchers("/")
 		.permitAll().antMatchers("/h2-console/**").permitAll();
-		//frontend
-		httpSecurity.authorizeRequests().antMatchers("/")
-		.permitAll().antMatchers("/static/**").permitAll();	
-		httpSecurity.authorizeRequests().antMatchers("/")
-		.permitAll().antMatchers("/projet/**").permitAll();	
 		
-		httpSecurity.authorizeRequests().antMatchers("/")
-		.permitAll().antMatchers("/login/**").permitAll();	
 		
 		// We don't need CSRF for this example
 		
