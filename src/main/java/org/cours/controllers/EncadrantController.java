@@ -26,30 +26,30 @@ public class EncadrantController {
 	EncadrantRepos encadrantRepos;
 	
 	
-	@GetMapping(value = "/Encadrants")
+	@GetMapping(value = "/encadrants")
 	public Iterable<Encadrant> getEncadrants(){
 		return encadrantRepos.findAll();
 	}
 	
 	
-	@GetMapping(value = "/Encadrants/{id}")
+	@GetMapping(value = "/encadrants/{id}")
 	public Optional<Encadrant> findEncadrant(@PathVariable long id) {
 		return encadrantRepos.findById(id);
 	}
 	
 	
-	@PostMapping(value = "/Encadrants")
+	@PostMapping(value = "/encadrants")
 	public void saveEncadrant(@RequestBody Encadrant encadrant){
 		encadrantRepos.save(encadrant);
 	}
 	
 	
-	@DeleteMapping(value = "/Encadrants/{id}")
+	@DeleteMapping(value = "/encadrants/{id}")
 	public void deleteEncadrant(@PathVariable long id) {
 		encadrantRepos.deleteById(id);
 	}
 	
-	@PatchMapping(value = "/Encadrants/{id}")
+	@PatchMapping(value = "/encadrants/{id}")
 	public void updateEncadrant(@RequestBody Encadrant encadrant, @PathVariable long id) {
 		encadrantRepos.save(encadrant);
 	}
