@@ -22,7 +22,6 @@ public class Encadrant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NonNull
 	private long id;
 	
 	@NonNull private String nom;

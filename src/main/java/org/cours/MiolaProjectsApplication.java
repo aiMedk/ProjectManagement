@@ -2,8 +2,12 @@ package org.cours;
 
 import org.cours.model.Encadrant;
 import org.cours.model.Etudiant;
+import org.cours.model.Groupe;
+import org.cours.model.Projet;
 import org.cours.repos.EncadrantRepos;
 import org.cours.repos.EtudiantRepos;
+import org.cours.repos.GroupeRepository;
+import org.cours.repos.ProjetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,8 +26,14 @@ public class MiolaProjectsApplication {
 	EncadrantRepos encadrantRepo;
 	
 	@Autowired
-	EtudiantRepos etuRepos;
+	EtudiantRepos etudiantRepo;
 	
+
+	@Autowired
+	private GroupeRepository groupeRepo;
+	
+	@Autowired
+	private ProjetRepository projetRepo;
 	
 	@Bean
 	CommandLineRunner runner() {
@@ -32,23 +42,41 @@ public class MiolaProjectsApplication {
 			
 			
 
-			Encadrant encadrant = new Encadrant(1L,"med", "fakir", "Admin", "AI");
-			Encadrant encadrant1 = new Encadrant(2L,"s!", "s", "ss", "ss");
-			Encadrant encadrant2 = new Encadrant(3L,"s2", "s", "ss", "ss");
-			Encadrant encadrant3 = new Encadrant(4L,"s3", "sd", "dss", "dss");
+			String[] TechP1 = {};
+			String[] TechP2 = {"Photoshop", "Illustrator"};
+			String[] TechP3 = {"Android Studio", "Firebase"};
 			
-
-			encadrantRepo.save(encadrant);
-			encadrantRepo.save(encadrant3);
-			encadrantRepo.save(encadrant2);
-			encadrantRepo.save(encadrant1);
+			Projet p1 = new Projet("SmartZoo - Vision Board","projet consiste a élaborer une vison d'un projet.","SCRUM","15 jours","",0);
+			Projet p2 = new Projet("SmartZoo - Vision Box","projet consiste a élaborer un box d'un projet.","SCRUM","20 jours","Photoshop, Illustrator",0);
+			Projet p3 = new Projet("HealthCare","projet consiste a élaborer une application de gestion d'un cabinet médical","Android","2 mois","Android Studio, Firebase",0);
 			
-			Etudiant etudiant = new Etudiant("dd", "sss", "ss","MIOLA", "sss", "ww", "ss");
-
-			Etudiant etudiant1 = new Etudiant("qdd", "ssss", "wss","M3S", "dsss", "dww", "dss");
+			Encadrant e1 = new Encadrant("Ahmed","Rochdi","Encadrant","GI");
+			Encadrant e2 = new Encadrant("Safae","Hilali","Encadrant","BigData");
+			Encadrant e3 = new Encadrant("Naoual","Berbiche","Encadrant","Security");
 			
-			etuRepos.save(etudiant);
-			etuRepos.save(etudiant1);
+			Etudiant et1 = new Etudiant("EL-FAKIR","Mohamed","1578999364","Miola","","","");
+			Etudiant et2 = new Etudiant("EL BARHOUMI","Mohamed Iliass","M137320666","Miola","","","");
+			Etudiant et3 = new Etudiant("SALIH","Samah","143784903","Miola","","","");
+			Etudiant et4 = new Etudiant("ABDULRAHMAN","Ali Ibrahim","G56389X83","Miola","","","");
+			
+			Groupe g1 = new Groupe("IotGuys");
+			Groupe g2 = new Groupe("Eagles");
+			
+			projetRepo.save(p1);
+			projetRepo.save(p2);
+			projetRepo.save(p3);
+			
+			encadrantRepo.save(e1);
+			encadrantRepo.save(e2);
+			encadrantRepo.save(e3);
+			
+			etudiantRepo.save(et1);
+			etudiantRepo.save(et2);
+			etudiantRepo.save(et3);
+			etudiantRepo.save(et4);
+			
+			groupeRepo.save(g1);
+			groupeRepo.save(g2);
 			
 			
 			
